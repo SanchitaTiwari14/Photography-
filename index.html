@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Define CSS variables */
+        :root {
+            --primary-color: #007bff;
+            /* Primary color */
+            --secondary-color: rgba(108, 117, 125, 0.7);
+            /* Transparent secondary color for navbar */
+            --font-family: 'Arial', sans-serif;
+            /* Font family */
+        }
+
+        /* Global styles */
+        body {
+            font-family: var(--font-family);
+            /* Use custom font family */
+            margin: 0;
+            /* Remove default margin */
+            padding: 0;
+            /* Remove default padding */
+            background-color: #f8f9fa;
+            /* Light background color */
+        }
+
+        /* Hero Section styles */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            background-image: url('Images/hero section.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            margin: 0;
+            /* Remove default margin */
+            padding: 0;
+            /* Remove default padding */
+            margin-bottom: 20px;
+            /* Add bottom margin to create space */
+        }
+
+        /* Overlay styles */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Overlay color with opacity */
+            z-index: 1;
+            /* Ensure overlay is above navbar */
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--secondary-color);
+            /* Use transparent secondary color for navbar background */
+            padding: 5px 0;
+            /* Adjusted padding */
+            z-index: 2;
+            /* Ensure navbar is above overlay */
+        }
+
+        /* Logo styles */
+        .navbar-brand img {
+            max-width: 80px;
+            /* Reduced max-width for the logo */
+        }
+
+        /* Navbar links styles */
+        .navbar-nav .nav-link {
+            color: #fff;
+            /* Change link color */
+            font-weight: bold;
+            /* Add font weight */
+            transition: color 0.3s;
+            /* Add transition effect */
+            font-size: 14px;
+            /* Adjusted font size */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+            /* Change link color on hover */
+        }
+
+        /* Hero content styles */
+        .hero-content {
+            text-align: center;
+            margin-top: 20%;
+            z-index: 1;
+            /* Ensure hero content is above overlay */
+        }
+
+        /* Updated heading styles for responsiveness */
+        .hero-content h1 {
+            font-size: 3rem;
+            /* Large font size for heading */
+            margin-bottom: 20px;
+            /* Add spacing below heading */
+        }
+
+        /* Updated paragraph styles for responsiveness */
+        .hero-content p {
+            font-size: 1.5rem;
+            /* Medium font size for paragraph */
+            font-family: 'Pacifico', cursive !important;
+        }
+
+        /* Photo Gallery styles */
+        .photo-gallery img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+            /* Add transition for hover effect */
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+            /* Increase scale on hover */
+        }
+
+        /* Testimonial Slider styles */
+        .testimonial-slider .testimonial {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            /* Background color */
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 4px solid #333;
+            /* Dark border color and increased width */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            /* Add box shadow */
+        }
+
+        /* Narrower Testimonial Slider */
+        .testimonial-slider .carousel-inner {
+            max-width: 600px;
+            /* Adjust the max-width to your preference */
+            margin: 0 auto;
+            /* Center the carousel */
+        }
+
+        .testimonial-slider .carousel-item img {
+            max-width: 100%;
+            /* Ensure images fit within the carousel */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 10px;
+            /* Add border-radius to images */
+        }
+
+        /* Customize control buttons */
+        .carousel-control-prev,
+        .carousel-control-next {
+            display: none;
+            /* Hide control buttons */
+        }
+
+        /* Pause carousel on hover */
+        .testimonial-slider:hover .carousel-item {
+            pointer-events: none;
+            /* Disable click events */
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: var(--secondary-color);
+            /* Use same secondary color for footer background */
+            color: #fff;
+            /* Text color */
+            padding: 20px 0;
+            /* Adjusted padding */
+            text-align: center;
+            /* Center align text */
+        }
+
+        footer p {
+            margin-bottom: 0;
+            /* Remove default bottom margin for paragraphs */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <!-- GIF -->
+            <a class="navbar-brand" href="#">
+                <img src="Images/logo.gif" alt="Your GIF" class="img-fluid gif">
+            </a>
+            <!-- End GIF -->
+
+            <!-- Navbar Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- End Navbar Toggler -->
+
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Navbar Items -->
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 hero-content text-center">
+                    <h1>Welcome to <br class="d-lg-none"> Captured Moments Photography Studio</h1>
+                    <p>Crafting Memories, <br class="d-lg-none"> One Click at a Time </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Photo Gallery -->
+    <section class="photo-gallery" id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="Images/1.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/1.jpg" alt="Image 1">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/2.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/2.jpg" alt="Image 2">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/3.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/3.jpg" alt="Image 3">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/4.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/4.jpg" alt="Image 4">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/5.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/5.jpg" alt="Image 5">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/6.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/6.jpg" alt="Image 6">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/7.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/7.jpg" alt="Image 7">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/8.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/8.jpg" alt="Image 8">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/9.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/9.jpg" alt="Image 9">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/10.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/10.jpg" alt="Image 10">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/11.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/11.jpg" alt="Image 11">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/12.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/12.jpg" alt="Image 12">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/13.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/13.jpg" alt="Image 13">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="Images/14.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="Images/14.jpg" alt="Image 14">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Slider -->
+    <section class="testimonial-slider">
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial">
+                        <img src="Images/1.jpg" class="img-fluid" alt="Testimonial Image 1">
+                        <p>"Testimonial 1"</p>
+                        <p>- Anurag Khshyap</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial">
+                        <img src="Images/2.jpg" class="img-fluid" alt="Testimonial Image 2">
+                        <p>"Testimonial 2"</p>
+                        <p>- Pankaj Tiwari</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial">
+                        <img src="Images/4.jpg" class="img-fluid" alt="Testimonial Image 3">
+                        <p>"Testimonial 3"</p>
+                        <p>- Doremon</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial">
+                        <img src="Images/5.jpg" class="img-fluid" alt="Testimonial Image 4">
+                        <p>"Testimonial 4"</p>
+                        <p>- Shinchan</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial">
+                        <img src="Images/6.jpg" class="img-fluid" alt="Testimonial Image 5">
+                        <p>"Testimonial 5"</p>
+                        <p>- Batman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2024 Sanchita Photography Studio. All rights reserved.</p>
+                    <p>Contact: sanchitatiwari199@gmail.com | Phone: +918319431642</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS and Custom JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Smooth scrolling for navigation links
+            $("a.nav-link").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Initialize Bootstrap Carousel -->
+    <script>
+        $(document).ready(function () {
+            $('#testimonialCarousel').carousel({
+                pause: 'hover' // Pause on hover
+            });
+        });
+    </script>
+</body>
+
+</html>
